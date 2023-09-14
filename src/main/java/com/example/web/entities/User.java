@@ -1,12 +1,19 @@
 package com.example.web.entities;
 
+import jakarta.persistence.*;
+import org.springframework.stereotype.Repository;
+
 import java.io.Serializable;
 import java.util.Objects;
-
+//entidade do dominio
+@Entity
+@Table(name = "tb_user") //Tabela do banco de dados
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Cria o id com auto incremento
     private Long id;
     private String name;
     private String email;
